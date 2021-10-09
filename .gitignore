@@ -1,0 +1,27 @@
+#
+/build
+/coverage
+/docs
+/packages
+/public
+/node_modules
+/tools
+/vendor
+.env
+.php-cs-fixer.cache
+.phpunit.result.cache
+horizon.log
+npm-debug.log
+.php_cs.cache
+stderr.log
+composer.lock
+package-lock.json
+#
+
+#ide_helper generated
+/.idea
+/.phpstorm.meta.php
+/_ide_helper.php
+/_ide_helper_actions.php
+/_ide_helper_models.php
+#
