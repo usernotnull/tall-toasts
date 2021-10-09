@@ -1,0 +1,35 @@
+name: build
+
+on:
+  workflow_run:
+    workflows: [ "run-checks" ]
+    types:
+      - completed
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Node (${{ matrix.node-version }})
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Dependencies
+        run: npm i
+
+      - name: Build Files
+        run: npm run build && git add dist
+
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: dist/ rebuilt

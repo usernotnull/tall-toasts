@@ -1,0 +1,30 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - src
+
+    # The level 8 is the highest level
+    level: 5
+
+    excludePaths:
+#        - ./src/ToastServiceProvider.php
+
+    ignoreErrors:
+        - '#Unsafe usage of new static#'
+        - '#Call to an undefined method Illuminate\\Support\\HigherOrder#'
+        - '#Call to an undefined static method#'
+        - '#Parameter (\#)(\d) \$callback of method Illuminate\\Container\\Container::call\(\) expects \(callable\(\): (.*)#'
+        - '#Parameter (\#)(\d) \$callback of function view expects view-string|null, string given#'
+        - path: database/factories/*
+          message: '#Undefined variable: \$factory#'
+
+    checkMissingIterableValueType: false
+
+    reportUnmatchedIgnoredErrors: false
+
+#    noUnnecessaryCollectionCall: false
+
+#    checkOctaneCompatibility: true
