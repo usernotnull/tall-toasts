@@ -1,0 +1,83 @@
+{
+    "rules": {
+        "at-rule-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "blockless-after-same-name-blockless",
+                    "first-nested"
+                ]
+            }
+        ],
+        "at-rule-name-case": "lower",
+        "at-rule-name-newline-after": "always-multi-line",
+        "at-rule-name-space-after": "always-single-line",
+        "at-rule-semicolon-space-before": "never",
+        "block-no-empty": true,
+        "color-no-invalid-hex": true,
+        "comment-empty-line-before": [
+            "always",
+            {
+                "ignore": [
+                    "after-comment"
+                ]
+            }
+        ],
+        "comment-no-empty": true,
+        "comment-whitespace-inside": "always",
+        "declaration-block-no-duplicate-properties": true,
+        "declaration-block-no-redundant-longhand-properties": true,
+        "declaration-colon-space-after": "always",
+        "font-family-no-duplicate-names": true,
+        "font-weight-notation": "numeric",
+        "indentation": [
+            2,
+            {
+                "ignore": [
+                    "value"
+                ]
+            }
+        ],
+        "length-zero-no-unit": true,
+        "max-empty-lines": 2,
+        "max-line-length": 100,
+        "max-nesting-depth": 3,
+        "no-duplicate-selectors": true,
+        "no-eol-whitespace": true,
+        "no-extra-semicolons": true,
+        "no-invalid-double-slash-comments": true,
+        "no-missing-end-of-source-newline": true,
+        "property-case": "lower",
+        "property-no-unknown": true,
+        "rule-empty-line-before": [
+            "always",
+            {
+                "except": [
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment"
+                ]
+            }
+        ],
+        "selector-list-comma-newline-after": "always",
+        "selector-pseudo-class-no-unknown": true,
+        "shorthand-property-no-redundant-values": true,
+        "string-no-newline": true,
+        "string-quotes": "double",
+        "unit-case": "lower",
+        "unit-no-unknown": true,
+        "unit-whitelist": [
+            "deg",
+            "em",
+            "rem",
+            "%",
+            "ms",
+            "s",
+            "px",
+            "vh",
+            "vw"
+        ],
+        "value-keyword-case": "lower"
+    }
+}

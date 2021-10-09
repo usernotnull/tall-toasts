@@ -1,0 +1,46 @@
+name: fix-styling
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  styling:
+    name: fix-styling
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ ubuntu-latest ] #, windows-latest
+        php: [ 8.0 ]
+        laravel: [ 8.* ]
+        stability: [ prefer-lowest ] #, prefer-stable
+        include:
+          - laravel: 8.*
+            testbench: ^6.6
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP, with composer and extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+          tools: composer:v2
+          coverage: false
+
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction
+
+      - name: PHP-Code Sniffer Beautifier
+        run: ./vendor/bin/phpcbf
+
+      - name: PHP-CS-Fixer
+        run: ./vendor/bin/php-cs-fixer fix
+
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: styling fixes
