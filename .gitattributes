@@ -1,0 +1,34 @@
+# Declare files that will always have LF line endings on checkout.
+*.config    text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.css       text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.htm       text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.html      text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.js        text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.json      text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.md        text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.php       text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.sh        text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.sql       text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.ts        text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.txt       text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.yml       text eol=lf whitespace=blank-at-eol,-blank-at-eof
+*.xml       text eol=lf whitespace=blank-at-eol,-blank-at-eof
+
+# Set the default behavior, in case people don't have core.autocrlf set.
+* text=auto
+
+/.editorconfig      export-ignore
+/.gitattributes     export-ignore
+/.github            export-ignore
+/.gitignore         export-ignore
+/.php_cs.dist       export-ignore
+/.scrutinizer.yml   export-ignore
+/.styleci.yml       export-ignore
+/.travis.yml        export-ignore
+/phpunit.xml.dist   export-ignore
+/psalm.xml          export-ignore
+/psalm.xml.dist     export-ignore
+/testbench.yaml     export-ignore
+/tests              export-ignore
+/build              export-ignore
+/CHANGELOG.md       export-ignore

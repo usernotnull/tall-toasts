@@ -1,0 +1,78 @@
+{
+    "name": "usernotnull/tall-toast",
+    "type": "library",
+    "description": "A notification package for the TALL stack",
+    "keywords": [
+        "usernotnull",
+        "tall-toast",
+        "toast-notifications",
+        "ToastManager",
+        "ui-components",
+        "laravel-package",
+        "laravel",
+        "livewire",
+        "tailwindcss",
+        "alpinejs",
+        "tall-stack"
+    ],
+    "homepage": "https://github.com/usernotnull/tall-toast",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "John F (#usernotnull)",
+            "email": "15612814+usernotnull@users.noreply.github.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/contracts": "^v8.61",
+        "livewire/livewire": "^v2.6",
+        "spatie/laravel-package-tools": "^1.9"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^v3.2",
+        "nunomaduro/collision": "^5.10",
+        "nunomaduro/larastan": "^0.7.12",
+        "orchestra/testbench": "^v6.21",
+        "pestphp/pest": "^v1.20",
+        "pestphp/pest-plugin-laravel": "^v1.1",
+        "pestphp/pest-plugin-parallel": "^0.3.1",
+        "phpmd/phpmd": "^2.10",
+        "phpstan/phpstan": "^0.12",
+        "squizlabs/php_codesniffer": "^3.6",
+        "vimeo/psalm": "^4.10"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Usernotnull\\Toast\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Usernotnull\\Toast\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/pest --no-coverage",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Usernotnull\\Toast\\ToastServiceProvider"
+            ],
+            "aliases": {
+                "Toast": "ToastManager"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
