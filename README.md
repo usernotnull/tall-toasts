@@ -10,6 +10,7 @@ Runs with the TALL stack: [Laravel](https://laravel.com/docs/8.x/installation),
 [Livewire](https://laravel-livewire.com/docs/2.x/installation),
 [AlpineJS](https://alpinejs.dev/essentials/installation).
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e2425a22759941cf9037d35be7b959e0)](https://app.codacy.com/gh/usernotnull/tall-toasts?utm_source=github.com&utm_medium=referral&utm_content=usernotnull/tall-toasts&utm_campaign=Badge_Grade_Settings)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/usernotnull/tall-toasts.svg?style=plastic)](https://packagist.org/packages/usernotnull/tall-toasts)
 [![Build size Brotli](https://img.badgesize.io/usernotnull/tall-toasts/main/dist/js/tall-toasts.js.svg?compression=brotli&style=plastic&color=green&label=JS%20size)](https://github.com/usernotnull/tall-toasts/blob/main/dist/js/tall-toasts.js)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=plastic&label=license)](https://opensource.org/licenses/MIT)
