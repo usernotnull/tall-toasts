@@ -27,7 +27,7 @@
     "require": {
         "php": "^8.0",
         "illuminate/contracts": "^v8.61",
-        "livewire/livewire": "^v2.6",
+        "livewire/livewire": "^v2.7",
         "spatie/laravel-package-tools": "^1.9"
     },
     "require-dev": {
