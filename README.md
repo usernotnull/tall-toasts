@@ -73,6 +73,10 @@ Toast.danger('I warned you!', 'Yikes');
 
 ```php
 toast()
+    ->info('I will appear only on the next page!')
+    ->pushOnNextPage();
+
+toast()
     ->info('Notification from the backend...', 'The Title')
     ->push();
 
@@ -100,6 +104,15 @@ use Usernotnull\Toast\Concerns\WireToast;
 class DemoComponent extends Component
 {
     use WireToast; // <-- add this
+
+    public function sendCookie(): void
+    {
+        toast()
+            ->success('You earned a cookie! 🍪')
+            ->pushOnNextPage();
+
+        redirect()->route('dashboard');
+    }
 ```
 
 *Video tutorial and walk-through coming soon!*
