@@ -13,12 +13,7 @@ trait WireToast
     {
         if (! ToastManager::componentRendered()) {
             foreach (ToastManager::pull() ?? [] as $notification) {
-                $response->effects['dispatches'] ??= [];
-
-                $response->effects['dispatches'][] = [
-                    'event' => 'toast',
-                    'data' => $notification,
-                ];
+                $this->dispatchBrowserEvent('toast', $notification);
             }
         }
     }

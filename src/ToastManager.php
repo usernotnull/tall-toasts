@@ -26,7 +26,7 @@ class ToastManager extends Facade
 
     public static function hasPendingToasts(): bool
     {
-        return session()->has('toasts');
+        return session()->has(config('tall-toasts.session_keys.toasts'));
     }
 
     protected static function javaScriptAssets(array $options): string
@@ -62,7 +62,12 @@ HTML;
 
     public static function pull(): array
     {
-        return session()->pull('toasts', []);
+        return session()->pull(config('tall-toasts.session_keys.toasts'), []);
+    }
+
+    public static function pullNextPage(): array
+    {
+        return session()->pull(config('tall-toasts.session_keys.toasts_next_page'), []);
     }
 
     public static function scripts(array $options = []): string

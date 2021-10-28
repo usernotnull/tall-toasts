@@ -26,15 +26,20 @@ it('receives notifications on livewire component', function () {
     $message = 'testing info';
     $title = 'title info';
 
-    $notificationArray = Notification::make($message, $title);
-
     toast()
         ->info($message, $title)
         ->push();
 
+    toast()
+        ->info($message . ' next', $title)
+        ->pushOnNextPage();
+
     $component = Livewire::test(ToastComponent::class);
 
-    assertEquals($component->get('toasts'), [$notificationArray]);
+    assertEquals($component->get('toasts'), [
+        Notification::make($message . ' next', $title),
+        Notification::make($message, $title),
+    ]);
 });
 
 it('renders and pulls data in a blade view', function () {

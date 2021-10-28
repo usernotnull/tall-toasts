@@ -35,4 +35,13 @@ it('pushes and pulls toasts via session', function () {
         ])
         ->and(ToastManager::hasPendingToasts())
         ->toBeFalse();
+
+    toast()
+        ->info('testing next page', 'title')
+        ->pushOnNextPage();
+
+    expect(ToastManager::hasPendingToasts())
+        ->toBeFalse()
+        ->and(ToastManager::pullNextPage())
+        ->toEqual([Notification::make('testing next page', 'title')]);
 });

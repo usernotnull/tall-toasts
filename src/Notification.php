@@ -35,6 +35,11 @@ class Notification
 
     public function push(): void
     {
-        session()->push('toasts', $this->asArray());
+        session()->push(config('tall-toasts.session_keys.toasts'), $this->asArray());
+    }
+
+    public function pushOnNextPage(): void
+    {
+        session()->push(config('tall-toasts.session_keys.toasts_next_page'), $this->asArray());
     }
 }
