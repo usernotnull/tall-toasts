@@ -3,6 +3,7 @@ export default function (Alpine) {
     ($wire) => ({
       duration: $wire.duration,
       wireToasts: $wire.entangle('toasts'),
+      wireToastsIndex: 0,
       toasts: [],
       pendingToasts: [],
       pendingRemovals: [],
@@ -52,12 +53,15 @@ export default function (Alpine) {
       },
 
       fetchWireToasts () {
-        this.wireToasts.forEach((toast) => {
+        this.wireToasts.forEach((toast, i) => {
+          if (i < this.wireToastsIndex) {
+            return;
+          }
+
           this.add(window.Alpine.raw(toast));
+
+          this.wireToastsIndex++;
         });
-        if (this.wireToasts.length > 0) {
-          $wire.set('toasts', []);
-        }
       },
 
       add (toast) {
