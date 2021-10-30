@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file.
 
+## 1.1.1 - 2021-10-30
+
+### Fixes
+
+-   Fixed a rare race condition between frontend and backend which caused infinite loop of livewire requests
+
 ## 1.1.0 - 2021-10-28
 
 ### New Features
