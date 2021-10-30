@@ -33,7 +33,7 @@ available:
 
 Since the frontend is a pure AlpineJS component with no reliance on external JS libs, and since the backend handles most
 of the logic, the javascript footprint is
-tiny [(less than ONE kilobyte!)](https://img.badgesize.io/usernotnull/tall-toasts/master/dist/tall-toasts.js.svg?compression=brotli&style=plastic&color=green)
+tiny [(less than ONE kilobyte!)](https://img.badgesize.io/usernotnull/tall-toasts/main/dist/js/tall-toasts.js.svg?compression=brotli&style=plastic&color=green&label=JS%20size)
 .
 
 The CSS footprint is also negligible as it uses the default TailwindCSS classes. Even if you override the default views,
