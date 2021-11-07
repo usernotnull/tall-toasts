@@ -2,6 +2,12 @@
 
 All notable changes will be documented in this file.
 
+## 1.1.2 - 2021-11-07
+
+### Fixes
+
+-   Fixed container view which was not allowing click-through between and around toasts.
+
 ## 1.1.1 - 2021-10-30
 
 ### Fixes
