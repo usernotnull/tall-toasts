@@ -10,7 +10,7 @@ class Notification
         protected string $message,
         protected ?string $title,
         protected ?string $type = null,
-        protected bool $sanitize = true,
+        protected bool $sanitize = true
     ) {
         $this->type = $type ?? NotificationType::$info;
     }
