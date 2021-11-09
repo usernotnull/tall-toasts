@@ -11,7 +11,7 @@
         <div class="flex-1 mr-2">
             <div
                 class="mb-1 font-black text-lg tracking-widest text-gray-900 uppercase font-large dark:text-gray-100"
-                x-text="toast.title"
+                x-html="toast.title"
             ></div>
 
             <div

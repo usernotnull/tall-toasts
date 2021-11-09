@@ -45,3 +45,36 @@ it('pushes and pulls toasts via session', function () {
         ->and(ToastManager::pullNextPage())
         ->toEqual([Notification::make('testing next page', 'title')]);
 });
+
+it('sanitizes by default', function () {
+    $message = 'a<br><b>b</b>c';
+    $title = 'd<br><b>e</b>f';
+
+    toast()
+        ->info($message, $title)
+        ->push();
+
+    $toast = ToastManager::pull()[0];
+
+    expect($toast['message'])
+        ->toEqual(htmlspecialchars($message, ENT_QUOTES))
+        ->and($toast['title'])
+        ->toEqual(htmlspecialchars($title, ENT_QUOTES));
+});
+
+it('skips sanitization when required', function () {
+    $message = 'a<br><b>b</b>c';
+    $title = 'd<br><b>e</b>f';
+
+    toast()
+        ->info($message, $title)
+        ->doNotSanitize()
+        ->push();
+
+    $toast = ToastManager::pull()[0];
+
+    expect($toast['message'])
+        ->toEqual($message)
+        ->and($toast['title'])
+        ->toEqual($title);
+});

@@ -73,6 +73,11 @@ Toast.danger('I warned you!', 'Yikes');
 
 ```php
 toast()
+    ->danger('I will go…<br><i>to the next line 💪</i>', 'I am <span style="color:red;">HOT</span>')
+    ->doNotSanitize()
+    ->push();
+    
+toast()
     ->info('I will appear only on the next page!')
     ->pushOnNextPage();
 
@@ -282,6 +287,15 @@ The published files are:
 -   `includes/icon.blade.php` - *the icons of each notification type*
 -   `livewire/toasts.blade.php` - *the parent of all toasts*
 
+#### Text Sanitization
+
+The content view displays the title and message with x-html. This is fine since the backend sanitizes the title and
+message by default.
+
+⚠️ If you wish to skip sanitization in order to display HTML content, such as bolding the text or adding `<br>` to go to
+the next line, you will call doNotSanitize() as seen in the [usage section](#usage). In such case, make sure no user
+input is provided!
+
 ## Troubleshooting
 
 Make sure you thoroughly go through this readme first!
@@ -371,6 +385,8 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 This project follows the [Semantic Versioning](https://semver.org/) guidelines.
 
 ## Security Vulnerabilities
+
+As per security best practices, do not call `doNotSanitize()` on a toast that has user input in its message or title!
 
 Please review [the security policy](https://github.com/usernotnull/tall-toasts/security/policy) on how to report
 security vulnerabilities.
