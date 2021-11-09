@@ -6,20 +6,29 @@ namespace Usernotnull\Toast;
 
 class Notification
 {
+    protected bool $sanitize = true;
+
+    protected string $message;
+
+    protected ?string $title;
+
+    protected ?string $type;
+
     public function __construct(
-        protected string $message,
-        protected ?string $title,
-        protected ?string $type = null,
-        protected bool $sanitize = true
+        string $message,
+        ?string $title,
+        ?string $type = null
     ) {
-        $this->type = $type ?? NotificationType::$info;
+        $this->type = $type;
+        $this->title = $title;
+        $this->message = $message;
     }
 
     protected function asArray(): array
     {
         $message = $this->sanitize ? htmlspecialchars($this->message, ENT_QUOTES) : $this->message;
         $title = $this->sanitize && $this->title ? htmlspecialchars($this->title, ENT_QUOTES) : $this->title;
-        $type = $this->type;
+        $type = $this->type ?? NotificationType::$info;
 
         return compact('message', 'title', 'type');
     }
