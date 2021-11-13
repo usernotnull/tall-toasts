@@ -22,7 +22,7 @@ class CopyAssetsToPublicFolder extends Command
      *
      * @return int
      */
-    public function handle() : int
+    public function handle(): int
     {
         $vendorFolder = __DIR__ . '/../../dist/js';
 
@@ -33,13 +33,13 @@ class CopyAssetsToPublicFolder extends Command
 
         $publicToastFile = $publicFolder . '/tall-toasts.js';
 
-        if($this->fileExists($publicToastFile)){
-            if($this->fileIsSame($vendorToastFile, $publicToastFile)){
+        if ($this->fileExists($publicToastFile)) {
+            if ($this->fileIsSame($vendorToastFile, $publicToastFile)) {
                 $this->info('Tall Toasts Javascript does not need to be copied.');
+
                 return Command::SUCCESS;
             };
-        }
-        else {
+        } else {
             File::makeDirectory($publicFolder);
         }
 
@@ -55,7 +55,7 @@ class CopyAssetsToPublicFolder extends Command
      * @param string $fileName
      * @return bool
      */
-    private function fileExists(string $fileName) : bool
+    private function fileExists(string $fileName): bool
     {
         return File::exists($fileName);
     }
@@ -66,7 +66,7 @@ class CopyAssetsToPublicFolder extends Command
      * @param string $publicFile
      * @return bool
      */
-    private function fileIsSame(string $originalFile, string $publicFile) : bool
+    private function fileIsSame(string $originalFile, string $publicFile): bool
     {
         return file_get_contents($originalFile) === file_get_contents($publicFile);
     }
@@ -77,7 +77,7 @@ class CopyAssetsToPublicFolder extends Command
      * @param string $fileTo
      * @return bool
      */
-    private function copyDir(string $fromFolder, string $toFolder) : bool
+    private function copyDir(string $fromFolder, string $toFolder): bool
     {
         return File::copyDirectory($fromFolder, $toFolder);
     }
