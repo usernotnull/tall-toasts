@@ -11,7 +11,7 @@ Runs with the TALL stack: [Laravel](https://laravel.com/docs/8.x/installation),
 [AlpineJS](https://alpinejs.dev/essentials/installation).
 
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/usernotnull/tall-toasts?label=release&sort=semver&style=plastic)](https://github.com/usernotnull/tall-toasts/releases)
-[![Build size Brotli](https://img.badgesize.io/usernotnull/tall-toasts/main/dist/js/tall-toasts.js.svg?compression=brotli&style=plastic&color=green&label=JS%20size)](https://github.com/usernotnull/tall-toasts/blob/main/dist/js/tall-toasts.js)  
+[![Build size Brotli](https://img.badgesize.io/usernotnull/tall-toasts/main/resources/dist/tall-toasts.js.svg?compression=brotli&style=plastic&color=green&label=JS%20size)](https://github.com/usernotnull/tall-toasts/blob/main/dist/js/tall-toasts.js)  
 [![Scrutinizer Score](https://img.shields.io/scrutinizer/g/usernotnull/tall-toasts.svg?style=plastic&label=scrutinizer%20score)](https://scrutinizer-ci.com/g/usernotnull/tall-toasts)
 [![Codacy branch grade](https://img.shields.io/codacy/grade/0c6b4f96ac2a4a6cbf265f5e825a3fd2/main?style=plastic)](https://www.codacy.com/gh/usernotnull/tall-toasts/dashboard?utm_source=github.com&utm_medium=referral&utm_content=usernotnull/tall-toasts&utm_campaign=Badge_Grade)  
 [![Styling](https://img.shields.io/github/workflow/status/usernotnull/tall-toasts/fix-styling?label=styling&style=plastic)](https://github.com/usernotnull/tall-toasts/actions/workflows/styling.yml)
@@ -33,7 +33,7 @@ available:
 
 Since the frontend is a pure AlpineJS component with no reliance on external JS libs, and since the backend handles most
 of the logic, the javascript footprint is
-tiny [(less than ONE kilobyte!)](https://img.badgesize.io/usernotnull/tall-toasts/main/dist/js/tall-toasts.js.svg?compression=brotli&style=plastic&color=green&label=JS%20size)
+tiny [(less than ONE kilobyte!)](https://img.badgesize.io/usernotnull/tall-toasts/main/resources/dist/tall-toasts.js.svg?compression=brotli&style=plastic&color=green&label=JS%20size)
 .
 
 The CSS footprint is also negligible as it uses the default TailwindCSS classes. Even if you override the default views,
@@ -185,7 +185,7 @@ Add the AlpineJS Toast component by changing your app.js file to match:
 
 ```js
 import Alpine from "alpinejs"
-import ToastComponent from '../../vendor/usernotnull/tall-toasts/dist/js/tall-toasts'
+import ToastComponent from '../../vendor/usernotnull/tall-toasts/resources/dist/tall-toasts'
 
 Alpine.data('ToastComponent', ToastComponent)
 

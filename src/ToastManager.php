@@ -33,7 +33,7 @@ class ToastManager extends Facade
     {
         $appUrl = config('toast.asset_url') ?: rtrim($options['asset_url'] ?? '', '/');
 
-        $manifestContent = File::get(__DIR__ . '/../dist/js/manifest.json');
+        $manifestContent = File::get(__DIR__ . '/../resources/dist/manifest.json');
 
         $manifest = json_decode($manifestContent, true);
         $versionedFileName = $manifest['/tall-toasts.js'];

@@ -35,11 +35,8 @@ it('fetches script with blade directive', function () {
 
     $scriptEval = eval(str_replace(['<?php echo', '?>'], ['return ', ';'], $scriptDirective));
 
-    expect($scriptEval)->toContain(
-        'src="/toast/tall-toasts.js?id=',
-        "document.addEventListener('alpine:init'",
-        "directive('ToastComponent'"
-    );
+    expect($scriptEval)->toContain('src="/toast/tall-toasts.js?id=', "document.addEventListener('alpine:init'",
+        "directive('ToastComponent'");
 });
 
 it('displays toast script tag with blade directive', function () {
@@ -64,7 +61,7 @@ it('displays toast script tag with blade directive', function () {
 });
 
 it('routes to the javascript', function () {
-    $jsDate = File::lastModified(__DIR__ . '/../../dist/js/tall-toasts.js');
+    $jsDate = File::lastModified(__DIR__ . '/../../resources/dist/tall-toasts.js');
     $serverDate = sprintf('%s GMT', gmdate('D, d M Y H:i:s', $jsDate ?: null));
 
     get('/toast/tall-toasts.js', [
@@ -73,5 +70,5 @@ it('routes to the javascript', function () {
 
     get('/toast/tall-toasts.js.map')->assertOk();
 
-    expect(File::get(__DIR__ . '/../../dist/js/tall-toasts.js'))->toContain('this.toasts', 'wireToasts');
+    expect(File::get(__DIR__ . '/../../resources/dist/tall-toasts.js'))->toContain('this.toasts', 'wireToasts');
 });

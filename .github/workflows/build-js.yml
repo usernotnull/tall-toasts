@@ -27,7 +27,7 @@ jobs:
         run: npm i
 
       - name: Build Files
-        run: npm run build && git add dist
+        run: npm run build && git add resources/dist
 
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4

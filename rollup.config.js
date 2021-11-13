@@ -15,7 +15,7 @@ export default {
     format: 'umd',
     sourcemap: true,
     name: 'tall-toasts',
-    file: 'dist/js/tall-toasts.js'
+    file: 'resources/dist/tall-toasts.js'
   },
   plugins: [
     resolve(),
@@ -40,7 +40,7 @@ export default {
 
     outputManifest({
       serialize () {
-        const file = fs.readFileSync(path.resolve('dist/js/tall-toasts.js'), 'utf8');
+        const file = fs.readFileSync(path.resolve('resources/dist/tall-toasts.js'), 'utf8');
         const hash = md5(file).substr(0, 20);
 
         return JSON.stringify({

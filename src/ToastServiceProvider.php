@@ -18,6 +18,7 @@ class ToastServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package->name('tall-toasts')
+            ->hasAssets()
             ->hasConfigFile()
             ->hasViews();
     }

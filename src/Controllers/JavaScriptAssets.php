@@ -11,11 +11,11 @@ class JavaScriptAssets
 
     public function maps(): Response|BinaryFileResponse
     {
-        return $this->pretendResponseIsFile(__DIR__ . '/../../dist/js/tall-toasts.js.map');
+        return $this->pretendResponseIsFile(__DIR__ . '/../../resources/dist/tall-toasts.js.map');
     }
 
     public function source(): Response|BinaryFileResponse
     {
-        return $this->pretendResponseIsFile(__DIR__ . '/../../dist/js/tall-toasts.js');
+        return $this->pretendResponseIsFile(__DIR__ . '/../../resources/dist/tall-toasts.js');
     }
 }
