@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route as RouteFacade;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Usernotnull\Toast\Console\CopyAssetsToPublicFolder;
 use Usernotnull\Toast\Controllers\JavaScriptAssets;
 use Usernotnull\Toast\Http\Livewire\ToastComponent;
 
@@ -19,6 +20,7 @@ class ToastServiceProvider extends PackageServiceProvider
     {
         $package->name('tall-toasts')
             ->hasConfigFile()
+            ->hasCommand(CopyAssetsToPublicFolder::class)
             ->hasViews();
     }
 
