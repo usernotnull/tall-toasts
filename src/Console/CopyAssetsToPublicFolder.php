@@ -10,7 +10,7 @@ class CopyAssetsToPublicFolder extends Command
     /**
      * @var string
      */
-    protected $signature = 'tall-toast:assets';
+    protected $signature = 'tall-toasts:assets';
 
     /**
      * @var string
@@ -24,23 +24,28 @@ class CopyAssetsToPublicFolder extends Command
      */
     public function handle() : int
     {
-        $vendorToastFile = __DIR__ . '/../../dist/js/tall-toasts.js';
-        $vendorToastMap = __DIR__ . '/../../dist/js/tall-toasts.js.map';
+        $vendorFolder = __DIR__ . '/../../dist/js';
 
-        $publicToastFile = public_path('/toast/tall-toasts.js');
-        $publicToastMap = public_path('/toast/tall-toasts.js.map');
+        $vendorToastFile = $vendorFolder . '/tall-toasts.js';
 
-        if($this->fileExists(public_path('toast/tall-toasts.js'))){
+
+        $publicFolder = public_path('/toast');
+
+        $publicToastFile = $publicFolder . '/tall-toasts.js';
+
+        if($this->fileExists($publicToastFile)){
             if($this->fileIsSame($vendorToastFile, $publicToastFile)){
                 $this->info('Tall Toasts Javascript does not need to be copied.');
                 return Command::SUCCESS;
-            }
+            };
+        }
+        else {
+            File::makeDirectory($publicFolder);
         }
 
-        $this->copyFile($vendorToastFile, $publicToastFile);
-        $this->copyFile($vendorToastMap, $publicToastMap);
+        $this->copyDir($vendorFolder, $publicFolder);
 
-        $this->info('Copied Tall Toasts assets to public/toast/');
+        $this->info('Copied Tall Toasts assets to ' . $publicFolder);
 
         return Command::SUCCESS;
     }
@@ -72,8 +77,8 @@ class CopyAssetsToPublicFolder extends Command
      * @param string $fileTo
      * @return bool
      */
-    private function copyFile(string $fileFrom, string $fileTo) : bool
+    private function copyDir(string $fromFolder, string $toFolder) : bool
     {
-        return File::copy($fileFrom, $fileTo);
+        return File::copyDirectory($fromFolder, $toFolder);
     }
 }
