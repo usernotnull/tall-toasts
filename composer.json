@@ -31,7 +31,7 @@
         "spatie/laravel-package-tools": "^1.9"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^v3.2",
+        "friendsofphp/php-cs-fixer": "^v3.3",
         "nunomaduro/collision": "^5.10",
         "nunomaduro/larastan": "^0.7.15",
         "orchestra/testbench": "^v6.23",
