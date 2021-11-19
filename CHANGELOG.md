@@ -2,6 +2,10 @@
 
 All notable changes will be documented in this file.
 
+## 1.2.1 - 2021-11-19
+
+-   **[FIX]** Avoid showing 'undefined' as toast title/message in rare situations.
+
 ## 1.2.0 - 2021-11-09
 
 -   **[FEATURE]** Sanitization of the toast title and message is now optional, and enabled by default.
