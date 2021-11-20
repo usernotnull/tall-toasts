@@ -68,7 +68,7 @@ Toast.warning('Watch out!');
 
 Toast.danger('I warned you!', 'Yikes');
 
-Toast.debug('I will NOT show in a production environment');
+Toast.debug('I will NOT show in production! Locally, I will also log in console...', 'A Debug Message');
 ```
 
 ### From The Backend
@@ -100,7 +100,11 @@ toast()
     ->push();
 
 toast()
-    ->debug('I will NOT show in a production environment')
+    ->debug('I will NOT show in production! Locally, I will also log in console...', 'A Debug Message')
+    ->push();
+
+toast()
+    ->debug(User::factory()->createOne()->only(['name', 'email']), 'A User Dump')
     ->push();
 ```
 

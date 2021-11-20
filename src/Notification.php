@@ -6,7 +6,7 @@ namespace Usernotnull\Toast;
 
 class Notification
 {
-    protected bool $sanitize = true;
+    protected bool $sanitize;
 
     protected string $message;
 
@@ -22,6 +22,7 @@ class Notification
         $this->type = $type;
         $this->title = $title;
         $this->message = $message;
+        $this->sanitize = $type !== NotificationType::$debug;
     }
 
     protected function asArray(): array

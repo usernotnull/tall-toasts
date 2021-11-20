@@ -4,7 +4,7 @@ All notable changes will be documented in this file.
 
 ## 1.3.0 - 2021-11-20
 
--   **[FEATURE]** debug method added, which will not show in a production environment.
+-   **[FEATURE]** debug method added which will also print the result in the console (silent in a production environment)
 
 ```js
 // JS

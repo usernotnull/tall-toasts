@@ -81,7 +81,7 @@ export default function (Alpine) {
             return;
           }
 
-          console.table(toast);
+          console.log(toast.title, toast.message);
         }
 
         toast.type ??= 'info';

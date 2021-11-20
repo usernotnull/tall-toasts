@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Usernotnull\Toast;
 
+use function is_string;
+
 class Toast
 {
     public function danger(string $message, string $title = null): Notification
@@ -11,8 +13,12 @@ class Toast
         return new Notification($message, $title, NotificationType::$danger);
     }
 
-    public function debug(string $message, string $title = null): Notification
+    public function debug(mixed $message, string $title = null): Notification
     {
+        if (! is_string($message)) {
+            $message = json_encode($message, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT);
+        }
+
         return new Notification($message, $title, NotificationType::$debug);
     }
 
