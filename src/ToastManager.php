@@ -20,6 +20,16 @@ class ToastManager extends Facade
         return app('toast.manager')->componentRendered;
     }
 
+    protected static function filterNotifications(array $notifications): array
+    {
+        return collect($notifications)
+            ->filter(
+                fn (array $notification) => ! App::isProduction() || $notification['type'] !== NotificationType::$debug
+            )
+            ->values()
+            ->toArray();
+    }
+
     protected static function getFacadeAccessor(): string
     {
         return 'toast';
@@ -36,7 +46,7 @@ class ToastManager extends Facade
 
         $manifestContent = File::get(__DIR__ . '/../dist/js/manifest.json');
 
-        $manifest = json_decode($manifestContent, true);
+        $manifest = json_decode($manifestContent, true, 512, JSON_THROW_ON_ERROR);
         $versionedFileName = $manifest['/tall-toasts.js'];
 
         // Default to dynamic `tall-toasts.js` (served by a Laravel route).
@@ -87,15 +97,5 @@ HTML;
     public static function setComponentRendered(bool $rendered): void
     {
         app('toast.manager')->componentRendered = $rendered;
-    }
-
-    protected static function filterNotifications(array $notifications): array
-    {
-        return collect($notifications)
-            ->filter(
-                fn (array $notification) => ! App::isProduction() || $notification['type'] !== NotificationType::$debug
-            )
-            ->values()
-            ->toArray();
     }
 }

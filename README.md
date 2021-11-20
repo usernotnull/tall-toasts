@@ -67,16 +67,13 @@ Toast.success('A toast without a title also works');
 Toast.warning('Watch out!');
 
 Toast.danger('I warned you!', 'Yikes');
+
+Toast.debug('I will NOT show in a production environment');
 ```
 
 ### From The Backend
 
 ```php
-toast()
-    ->danger('I will go…<br><i>to the next line 💪</i>', 'I am <span style="color:red;">HOT</span>')
-    ->doNotSanitize()
-    ->push();
-    
 toast()
     ->info('I will appear only on the next page!')
     ->pushOnNextPage();
@@ -95,6 +92,15 @@ toast()
 
 toast()
     ->danger('I warned you!', 'Yikes')
+    ->push();
+
+toast()
+    ->danger('I will go…<br><i>to the next line 💪</i>', 'I am <span style="color:red;">HOT</span>')
+    ->doNotSanitize()
+    ->push();
+
+toast()
+    ->debug('I will NOT show in a production environment')
     ->push();
 ```
 

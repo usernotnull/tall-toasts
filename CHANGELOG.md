@@ -2,6 +2,22 @@
 
 All notable changes will be documented in this file.
 
+## 1.3.0 - 2021-11-20
+
+-   **[FEATURE]** debug method added, which will not show in a production environment.
+
+```js
+// JS
+Toast.debug('I will NOT show in a production environment');
+```
+
+```php
+// PHP
+toast()
+    ->debug('I will NOT show in a production environment')
+    ->push();
+```
+
 ## 1.2.1 - 2021-11-19
 
 -   **[FIX]** Avoid showing 'undefined' as toast title/message in rare situations.
@@ -11,6 +27,7 @@ All notable changes will be documented in this file.
 -   **[FEATURE]** Sanitization of the toast title and message is now optional, and enabled by default.
 
 ```php
+// PHP
 toast()
     ->danger('I will go…<br><i>to the next line 💪</i>', 'I am <span style="color:red;">HOT</span>')
     ->doNotSanitize()
