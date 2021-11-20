@@ -9,7 +9,7 @@ use Usernotnull\Toast\Tests\TestCase;
 
 uses(TestCase::class)->in('Feature', 'Unit');
 
-function createFakeComponent()
+function createFakeComponent(): void
 {
     new class () extends Component {
         use WireToast;
@@ -20,4 +20,9 @@ function createFakeComponent()
             $this->dehydrate(new Response(request()));
         }
     };
+}
+
+function setEnvironment(string $environment = 'testing'): void
+{
+    app()->detectEnvironment(fn () => $environment);
 }

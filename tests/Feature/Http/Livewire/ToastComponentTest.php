@@ -63,3 +63,32 @@ it('renders and pulls data in a blade view', function () {
         ->and(ToastManager::componentRendered())
         ->toBeTrue();
 });
+
+it('does not render debug toasts in production', function () {
+    $message = 'testing debug';
+    $title = 'title debug';
+
+    $pushDebug = fn () => toast()
+        ->debug($message, $title)
+        ->push();
+
+    setEnvironment('production');
+    expect($pushDebug())
+        ->and(Livewire::test(ToastComponent::class)->get('toasts'))
+        ->toEqual([]);
+
+    setEnvironment();
+    expect($pushDebug())
+        ->and(Livewire::test(ToastComponent::class)->get('toasts'))
+        ->toEqual([Notification::make($message, $title, NotificationType::$debug)]);
+});
+
+it('does not allow changing prod field', function () {
+    $component = Livewire::test(ToastComponent::class);
+
+    expect($component->get('prod'))->toBeFalse();
+
+    $component->set('prod', true);
+
+    expect($component->get('prod'))->toBeFalse();
+});

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Usernotnull\Toast;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\File;
 
@@ -62,12 +63,12 @@ HTML;
 
     public static function pull(): array
     {
-        return session()->pull(config('tall-toasts.session_keys.toasts'), []);
+        return self::filterNotifications(session()->pull(config('tall-toasts.session_keys.toasts'), []));
     }
 
     public static function pullNextPage(): array
     {
-        return session()->pull(config('tall-toasts.session_keys.toasts_next_page'), []);
+        return self::filterNotifications(session()->pull(config('tall-toasts.session_keys.toasts_next_page'), []));
     }
 
     public static function scripts(array $options = []): string
@@ -86,5 +87,15 @@ HTML;
     public static function setComponentRendered(bool $rendered): void
     {
         app('toast.manager')->componentRendered = $rendered;
+    }
+
+    protected static function filterNotifications(array $notifications): array
+    {
+        return collect($notifications)
+            ->filter(
+                fn (array $notification) => ! App::isProduction() || $notification['type'] !== NotificationType::$debug
+            )
+            ->values()
+            ->toArray();
     }
 }

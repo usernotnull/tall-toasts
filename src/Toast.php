@@ -11,6 +11,11 @@ class Toast
         return new Notification($message, $title, NotificationType::$danger);
     }
 
+    public function debug(string $message, string $title = null): Notification
+    {
+        return new Notification($message, $title, NotificationType::$debug);
+    }
+
     public function info(string $message, string $title = null): Notification
     {
         return new Notification($message, $title, NotificationType::$info);

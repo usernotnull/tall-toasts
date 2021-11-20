@@ -13,4 +13,6 @@ class NotificationType
     public static string $warning = 'warning';
 
     public static string $danger = 'danger';
+
+    public static string $debug = 'debug';
 }

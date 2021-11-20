@@ -3,6 +3,7 @@ export default function (Alpine) {
     ($wire) => ({
       duration: $wire.duration,
       wireToasts: $wire.entangle('toasts'),
+      prod: $wire.entangle('prod'),
       wireToastsIndex: 0,
       toasts: [],
       pendingToasts: [],
@@ -15,6 +16,10 @@ export default function (Alpine) {
           component: this,
 
           make: (message, title, type) => ({ title, message, type }),
+
+          debug (message, title = '') {
+            this.component.add(this.make(message, title, 'debug'));
+          },
 
           info (message, title = '') {
             this.component.add(this.make(message, title, 'info'));
@@ -69,6 +74,14 @@ export default function (Alpine) {
           this.pendingToasts.push(toast);
 
           return;
+        }
+
+        if (toast.type === 'debug') {
+          if (this.prod) {
+            return;
+          }
+
+          console.table(toast);
         }
 
         toast.type ??= 'info';
