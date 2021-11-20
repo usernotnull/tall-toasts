@@ -24,6 +24,10 @@ it('pushes and pulls toasts via session', function () {
     ToastManager::danger('testing danger', 'title danger')
         ->push();
 
+    toast()
+        ->debug([1, 2, 3], 'debug object')
+        ->push();
+
     expect(ToastManager::hasPendingToasts())
         ->toBeTrue()
         ->and(ToastManager::pull())
@@ -32,6 +36,11 @@ it('pushes and pulls toasts via session', function () {
             Notification::make('testing success', 'title success', NotificationType::$success),
             Notification::make('testing warning', 'title warning', NotificationType::$warning),
             Notification::make('testing danger', 'title danger', NotificationType::$danger),
+            Notification::make(
+                json_encode([1, 2, 3], JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT),
+                'debug object',
+                NotificationType::$debug
+            ),
         ])
         ->and(ToastManager::hasPendingToasts())
         ->toBeFalse();
