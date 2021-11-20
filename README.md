@@ -103,6 +103,7 @@ toast()
     ->debug('I will NOT show in production! Locally, I will also log in console...', 'A Debug Message')
     ->push();
 
+// debug also accepts objects as message
 toast()
     ->debug(User::factory()->createOne()->only(['name', 'email']), 'A User Dump')
     ->push();
