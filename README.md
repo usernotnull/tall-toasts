@@ -317,7 +317,8 @@ template. It helps us quickly reproduce the bug and resolve it.
 
 ### The toasts show multiple times only after refresh
 
--   If you are calling toasts from a livewire component, did you add the trait WireToast to the component? [(see)](#from-the-backend)
+-   If you are calling toasts from a livewire component, 
+    did you add the trait WireToast to the component? [(see)](#from-the-backend)
 
 -   Did you swap push() and pushOnNextPage()?
 
