@@ -315,6 +315,12 @@ If the checklist below does not resolve your problem, feel free
 to [submit an issue](https://github.com/usernotnull/tall-toasts/issues/new/choose). Make sure to follow the bug report
 template. It helps us quickly reproduce the bug and resolve it.
 
+### The toasts show multiple times only after refresh
+
+-   If you are calling toasts from a livewire component, did you add the trait WireToast to the component? [(see)](#from-the-backend)
+
+-   Did you swap push() and pushOnNextPage()?
+
 ### The toasts won't show
 
 -   Is the <livewire:toasts /> located in a page that has both the livewire and alpine/app.js script tags
