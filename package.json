@@ -18,7 +18,7 @@
         "fs-extra": "^10.0.0",
         "get-value": "^3.0.1",
         "md5": "^2.3.0",
-        "rollup": "^2.60.0",
+        "rollup": "^2.63.0",
         "rollup-plugin-filesize": "^9.1.2",
         "rollup-plugin-output-manifest": "^2.0.0",
         "rollup-plugin-terser": "^7.0.2",
