@@ -68,18 +68,18 @@ it('does not render debug toasts in production', function () {
     $message = 'testing debug';
     $title = 'title debug';
 
-    $pushDebug = fn () => toast()
-        ->debug($message, $title)
-        ->push();
+    $pushDebug = fn () => toast()->debug($message, $title)->push();
 
     setEnvironment('production');
     expect($pushDebug())
-        ->and(Livewire::test(ToastComponent::class)->get('toasts'))
+        ->and(Livewire::test(ToastComponent::class)
+            ->get('toasts'))
         ->toEqual([]);
 
     setEnvironment();
     expect($pushDebug())
-        ->and(Livewire::test(ToastComponent::class)->get('toasts'))
+        ->and(Livewire::test(ToastComponent::class)
+            ->get('toasts'))
         ->toEqual([Notification::make($message, $title, NotificationType::$debug)]);
 });
 
