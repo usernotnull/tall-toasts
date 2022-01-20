@@ -123,7 +123,7 @@ jobs:
 
       - name: Upload Coverage
         if: github.ref == 'refs/heads/main' && matrix.php == '8.0' && matrix.laravel == '8.*' && matrix.os == 'ubuntu-latest' && matrix.stability == 'prefer-stable'
-        uses: codacy/codacy-coverage-reporter-action@v1.2
+        uses: codacy/codacy-coverage-reporter-action@v1.3
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: build/clover.xml
