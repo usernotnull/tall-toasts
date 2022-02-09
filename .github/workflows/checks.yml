@@ -16,10 +16,13 @@ jobs:
       matrix:
         os: [ ubuntu-latest ] #, windows-latest
         php: [ 8.0 ]
-        laravel: [ 8.* ]
+        laravel: [ 8.*, 9.* ]
         stability: [ prefer-lowest ] #, prefer-stable
         include:
           - laravel: 8.*
+            testbench: 6.*
+          - laravel: 9.*
+            testbench: 7.*
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -45,7 +48,7 @@ jobs:
 
       - name: Install Composer dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update --dev
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update --dev
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Psalm
