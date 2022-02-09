@@ -14,15 +14,13 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ ubuntu-latest ] #, windows-latest
-        php: [ 8.0 ]
-        laravel: [ 8.*, 9.* ]
-        stability: [ prefer-lowest ] #, prefer-stable
+        os: [ ubuntu-latest ]
+        php: [ 8.1 ]
+        laravel: [ 9.* ]
+        dependency-version: [ prefer-lowest ]
         include:
-          - laravel: 8.*
-            testbench: 6.*
           - laravel: 9.*
-            testbench: 7.*
+            testbench: ^7.0
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -49,7 +47,7 @@ jobs:
       - name: Install Composer dependencies
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update --dev
-          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
       - name: Psalm
         run: ./vendor/bin/psalm --output-format=github
@@ -70,14 +68,14 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ ubuntu-latest ] # windows-latest
-        php: [ 8.0 ]
-        laravel: [ 8.* ]
-        stability: [ prefer-lowest, prefer-stable ]
+        os: [ ubuntu-latest ]
+        php: [ 8.1 ]
+        laravel: [ 9.* ]
+        dependency-version: [ prefer-stable ]
         include:
-          - laravel: 8.*
+          - laravel: 9.*
 
-    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }} - ${{ matrix.os }}
+    name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
     steps:
       - name: Checkout Code
@@ -105,7 +103,7 @@ jobs:
       - name: Install Composer dependencies
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update --dev
-          composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
       - name: Setup Problem Matchers
         run: |
@@ -125,14 +123,14 @@ jobs:
           RUNNING_IN_CI: true
 
       - name: Upload Coverage
-        if: github.ref == 'refs/heads/main' && matrix.php == '8.0' && matrix.laravel == '8.*' && matrix.os == 'ubuntu-latest' && matrix.stability == 'prefer-stable'
+        if: github.ref == 'refs/heads/main' && matrix.php == '8.0' && matrix.laravel == '8.*' && matrix.os == 'ubuntu-latest' && matrix.dependency-version == 'prefer-stable'
         uses: codacy/codacy-coverage-reporter-action@v1.3
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: build/clover.xml
 
       - name: Upload coverage to Codecov
-        if: github.ref == 'refs/heads/main' && matrix.php == '8.0' && matrix.laravel == '8.*' && matrix.os == 'ubuntu-latest' && matrix.stability == 'prefer-stable'
+        if: github.ref == 'refs/heads/main' && matrix.php == '8.0' && matrix.laravel == '8.*' && matrix.os == 'ubuntu-latest' && matrix.dependency-version == 'prefer-stable'
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
