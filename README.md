@@ -143,13 +143,13 @@ To stay updated, [follow me on Twitter](https://twitter.com/usernotnull).
 
 ## Requirements
 
-Dependency | Version | Comment
-----|----|----
-PHP | ^8.0 | Make the switch, you won't regret it :)
-Laravel | ^8.0 | [Official Installation Docs](https://laravel.com/docs/8.x/installation)
-TailwindCSS | ^2.0 |[Official Installation Docs](https://tailwindcss.com/docs/guides/laravel)
-Livewire | ^2.0 | [Official Installation Docs](https://laravel-livewire.com/docs/2.x/installation)
-AlpineJS | ^3.0 | [Official Installation Docs](https://alpinejs.dev/essentials/installation)
+Dependency | Version
+----|----
+PHP | ^8.0
+Laravel | ^8.0 \| ^9.0
+TailwindCSS | ^2.0 \| ^3.0
+Livewire | ^2.0
+AlpineJS | ^3.0
 
 ## Installation
 
@@ -175,7 +175,8 @@ If you are using [Just-in-Time Mode](https://tailwindcss.com/docs/just-in-time-m
 your `tailwind.config.js` file:
 
 ```js
-purge: [
+// use `purge` instead of `content` if using TailwindCSS v2.x
+content: [
     './vendor/usernotnull/tall-toasts/config/**/*.php',
     './vendor/usernotnull/tall-toasts/resources/views/**/*.blade.php',
     // etc...
