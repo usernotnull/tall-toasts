@@ -40,7 +40,7 @@
         "phpmd/phpmd": "^2.11",
         "pestphp/pest-plugin-parallel": "^1.0",
         "squizlabs/php_codesniffer": "^3.6",
-        "vimeo/psalm": "^4.20"
+        "vimeo/psalm": "^4.21"
     },
     "autoload": {
         "files": [
