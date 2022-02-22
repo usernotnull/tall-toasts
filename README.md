@@ -24,6 +24,10 @@ Light | Dark
 
 </div>
 
+## Featured On
+
+[<img src="https://laravelnews.imgix.net/laravel-news__logo.png" height="100" alt="Laravel News" />](https://laravel-news.com/toast-notifications-for-the-tall-stack) &nbsp;&nbsp;&nbsp; [<img src="https://madewithlaravel.com/mandant/madewithlaravel/images/logo.png" height="100" alt="madewithlaravel" />](https://madewithlaravel.com/tall-toasts) &nbsp;&nbsp;&nbsp; [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Podcasts_%28iOS%29.svg/2048px-Podcasts_%28iOS%29.svg.png" height="100" alt="Laravel News Podcast" />](https://podcasts.apple.com/us/podcast/laravel-news-podcast/id1051289963?mt=2)
+
 ## Why
 
 If you are building a web app with the TALL stack, you must choose this library over the other outdated libraries
@@ -130,8 +134,6 @@ class DemoComponent extends Component
         redirect()->route('dashboard');
     }
 ```
-
-*Video tutorial and walk-through coming soon!*
 
 ## Support Me
 
@@ -345,9 +347,6 @@ template. It helps us quickly reproduce the bug and resolve it.
 -    You may need to rebuild your CSS by running: `npm run dev` or re-running `npm run watch` [(see)](#tailwindcss)
 
 ## Other Packages
-
--   TALL Floating Action Menu (unreleased)
--   TALL Package Skeleton (unreleased)
 
 To stay updated, [follow me on Twitter](https://twitter.com/usernotnull).
 
