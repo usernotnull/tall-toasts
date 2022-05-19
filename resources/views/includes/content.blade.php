@@ -1,5 +1,5 @@
 <div
-    class="overflow-hidden z-50 p-5 bg-white rounded-md border-l-8 shadow cursor-pointer pointer-events-auto select-none hover:bg-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800"
+    class="overflow-hidden z-50 p-5 bg-white rounded-md shadow cursor-pointer pointer-events-auto select-none ltr:border-l-8 rtl:border-r-8 hover:bg-gray-50 dark:bg-black"
     x-bind:class="{
                     'border-blue-700': toast.type === 'info',
                     'border-green-700': toast.type === 'success',
@@ -7,12 +7,12 @@
                     'border-red-700': toast.type === 'danger'
                   }"
 >
-    <div class="flex justify-between items-center space-x-5">
-        <div class="flex-1 mr-2">
+    <div class="flex justify-between items-center space-x-5 rtl:space-x-reverse">
+        <div class="flex-1 ltr:mr-2 rtl:ml-2">
             <div
                 class="mb-1 text-lg font-black tracking-widest text-gray-900 uppercase font-large dark:text-gray-100"
-                x-show="toast.title !== undefined"
                 x-html="toast.title"
+                x-show="toast.title !== undefined"
             ></div>
 
             <div
