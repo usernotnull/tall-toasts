@@ -34,13 +34,13 @@
         "friendsofphp/php-cs-fixer": "^v3.8",
         "nunomaduro/collision": "^6.2.0",
         "nunomaduro/larastan": "^2.1",
-        "orchestra/testbench": "^7.1.0",
+        "orchestra/testbench": "^7.5.0",
         "pestphp/pest": "^v1.21",
         "pestphp/pest-plugin-laravel": "^v1.2",
         "phpmd/phpmd": "^2.12",
-        "pestphp/pest-plugin-parallel": "^1.0",
+        "pestphp/pest-plugin-parallel": "^1.1",
         "squizlabs/php_codesniffer": "^3.6",
-        "vimeo/psalm": "^4.21"
+        "vimeo/psalm": "^4.23"
     },
     "autoload": {
         "files": [
