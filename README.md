@@ -253,6 +253,19 @@ That's it! 🎉
 
 ***
 
+## RTL Support
+
+The default layout now supports RTL.
+
+As per TailwindCSS docs on [RTL support](https://tailwindcss.com/docs/hover-focus-and-other-states#rtl-support):  
+`Always set the direction, even if left-to-right is your default`.
+
+```html
+<html dir="ltr">
+  <!-- ... -->
+</html>
+```
+
 ## Customization
 
 The toasts should look pretty good out of the box. However, we've documented a couple of ways to customize the views and
