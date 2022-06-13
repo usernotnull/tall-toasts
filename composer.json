@@ -39,7 +39,7 @@
         "pestphp/pest-plugin-laravel": "^v1.2",
         "phpmd/phpmd": "^2.12",
         "pestphp/pest-plugin-parallel": "^1.1",
-        "squizlabs/php_codesniffer": "^3.6",
+        "squizlabs/php_codesniffer": "^3.7",
         "vimeo/psalm": "^4.23"
     },
     "autoload": {
