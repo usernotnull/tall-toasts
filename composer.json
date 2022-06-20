@@ -28,7 +28,7 @@
         "php": "^8.0.2",
         "illuminate/contracts": "^v8.61|^9.0",
         "livewire/livewire": "^v2.10",
-        "spatie/laravel-package-tools": "^1.11"
+        "spatie/laravel-package-tools": "^1.12"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^v3.8",
