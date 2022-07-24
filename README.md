@@ -189,17 +189,17 @@ This way, Tailwind JIT will include the classes used in this library in your CSS
 
 *As usual, if the content of `tailwind.config.js` changes, you should re-run the npm command.*
 
-### AlpineJS
+### Registering Toast with AlpineJS
 
-Add the ToastComponent to AlpineJS either as an npm module or with a script tag.
+Next, you need to register `Toast` with AlpineJS.  How this is done depends on which method you used to add Alpine to your project: 
 
-#### Option 1: NPM Module
+#### AlpineJS installed as an NPM Module
 
-Add the AlpineJS Toast component by changing your app.js file to match:
+If you have installed AlpineJS through NPM, you can add the Toast component by changing your `app.js` file to match:
 
 ```js
 import Alpine from "alpinejs"
-import ToastComponent from '../../vendor/usernotnull/tall-toasts/dist/js/tall-toasts'
+import ToastComponent from '../../vendor/usernotnull/tall-toasts/resources/js/tall-toasts'
 
 Alpine.data('ToastComponent', ToastComponent)
 
@@ -210,22 +210,26 @@ Alpine.start()
 *If you have a custom directory structure, you may have to adjust the above import path until it correctly points
 to `tall-toasts.js` inside this vendor file.*
 
-#### Option 2: Script Tag
+Include the `@toastScripts` blade directive *BEFORE* the `mix()` helper if using Laravel Mix,  if using Vite, include it before the `@vite` blade directive.
 
-Add the `@toastScripts` blade directive *BEFORE* importing AlpineJS:
+```html
+@toastScripts
 
--   If you imported AlpineJS from a script tag:
+<--- Vite --->
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+
+<--- Mix --->
+<script src="{{ mix('js/app.js') }}" defer></script>
+```
+
+#### AlpineJS added via script tag
+
+If you imported AlpineJS via a script tag simply add the `@toastScripts` blade directive *BEFORE* importing AlpineJS:
+
 
 ```html
 @toastScripts
 <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-```
-
--   If you installed AlpineJS as an NPM Module:
-
-```html
-@toastScripts
-<script src="{{ mix('js/app.js') }}" defer></script>
 ```
 
 ### The View
