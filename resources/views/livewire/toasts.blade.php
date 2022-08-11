@@ -1,7 +1,8 @@
 <div
-    class="fixed bottom-0 z-50 p-4 space-y-3 w-full max-w-sm pointer-events-none ltr:right-0 rtl:left-0 toasts-container sm:p-6"
     x-data='ToastComponent($wire)'
     @mouseleave="scheduleRemovalWithOlder()"
+    class="fixed bottom-0 z-50 p-4 space-y-3 w-full max-w-sm pointer-events-none ltr:right-0 rtl:left-0 toasts-container sm:p-6"
+    style="z-index:999;"
 >
     <template
         x-for="toast in toasts.filter((a)=>a)"
