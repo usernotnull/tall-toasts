@@ -33,7 +33,7 @@
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^v3.8",
         "laravel/pint": "^1.1",
-        "nunomaduro/collision": "^6.2.1",
+        "nunomaduro/collision": "^6.3.0",
         "nunomaduro/larastan": "^2.1",
         "orchestra/testbench": "^7.6.1",
         "pestphp/pest": "^v1.21",
