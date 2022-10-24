@@ -14,7 +14,7 @@
         "@rollup/plugin-babel": "^5.3.1",
         "@rollup/plugin-commonjs": "^22.0.2",
         "@rollup/plugin-node-resolve": "^13.3.0",
-        "core-js": "^3.24.1",
+        "core-js": "^3.26.0",
         "fs-extra": "^10.1.0",
         "get-value": "^3.0.1",
         "md5": "^2.3.0",
