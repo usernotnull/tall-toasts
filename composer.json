@@ -42,7 +42,7 @@
         "pestphp/pest-plugin-parallel": "^1.2",
         "phpmd/phpmd": "^2.13",
         "squizlabs/php_codesniffer": "^3.7",
-        "vimeo/psalm": "^4.30"
+        "vimeo/psalm": "^5.2"
     },
     "autoload": {
         "files": [
