@@ -5,7 +5,7 @@
 A Toast global that can be called from the backend (via Controllers, Blade Views, Components) or frontend (JS, Alpine
 Components) to render customizable toasts.
 
-Runs with the TALL stack: [Laravel](https://laravel.com/docs/8.x/installation),
+Runs with the TALL stack: [Laravel](https://laravel.com/docs/10.x/installation),
 [TailwindCSS](https://tailwindcss.com/docs/guides/laravel),
 [Livewire](https://laravel-livewire.com/docs/2.x/installation),
 [AlpineJS](https://alpinejs.dev/essentials/installation).
@@ -148,7 +148,7 @@ To stay updated, [follow me on Twitter](https://twitter.com/usernotnull).
 Dependency | Version
 ----|----
 PHP | ^8.0
-Laravel | ^8.0 \| ^9.0
+Laravel | ^8.0 \| ^9.0 \| ^10.0
 TailwindCSS | ^2.0 \| ^3.0
 Livewire | ^2.0
 AlpineJS | ^3.0

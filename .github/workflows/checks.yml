@@ -15,43 +15,31 @@ jobs:
       fail-fast: true
       matrix:
         os: [ ubuntu-latest ]
-        php: [ 8.1 ]
-        laravel: [ 9.* , 10.*]
-        dependency-version: [ prefer-lowest ]
+        php: ["8.1"]
+        laravel: ["^10.0"]
+        dependency-version: [ prefer-stable ]
         include:
-          - laravel: 10.*
-            testbench: ^8.0
-          - laravel: 9.*
-            testbench: ^7.0
-        exclude:
-          - laravel: 10.*
-            php: 8.0
+          - laravel: "^10.0"
+            testbench: "^8.1"
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup PHP, with composer and extensions
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0'
+          php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
-          tools: composer:v2
-          coverage: false
+          coverage: none
 
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-      - name: Cache Composer Dependencies
-        uses: actions/cache@v3.2.5
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
-          restore-keys: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-
+      - name: Setup Problem Matches
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Install Composer dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update --dev
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
       - name: Psalm
@@ -68,17 +56,17 @@ jobs:
 
   tests:
     needs: [ 'static-analysis' ]
-    runs-on: ${{ matrix.os }}
+    runs-on: 'ubuntu-latest'
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     strategy:
       fail-fast: true
       matrix:
         os: [ ubuntu-latest ]
-        php: [ 8.2 ]
-        laravel: [ 10.* ]
+        php: ["8.1"]
+        laravel: ["^10.0"]
         dependency-version: [ prefer-stable ]
         include:
-          - laravel: 10.*
+          - laravel: "^10.0"
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
@@ -86,7 +74,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup PHP, with composer and extensions
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
@@ -94,26 +82,15 @@ jobs:
           tools: composer:v2
           coverage: true
 
-      - name: Get Composer Cache Directory
-        id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-      - name: Cache Composer Dependencies
-        uses: actions/cache@v3.2.5
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
-          restore-keys: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-
+      - name: Setup Problem Matches
+        run: |
+          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Install Composer dependencies
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update --dev
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
-
-      - name: Setup Problem Matchers
-        run: |
-          echo "::add-matcher::${{ runner.tool_cache }}/php.json"
-          echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
       - name: Execute Tests (Ubuntu) + Coverage
         if: matrix.os == 'ubuntu-latest'
@@ -121,21 +98,15 @@ jobs:
         env:
           RUNNING_IN_CI: true
 
-      - name: Execute Tests (Windows)
-        if: matrix.os == 'windows-latest'
-        run: vendor/bin/pest --parallel
-        env:
-          RUNNING_IN_CI: true
-
       - name: Upload Coverage
-        if: github.ref == 'refs/heads/main' && matrix.php == '8.0' && matrix.laravel == '8.*' && matrix.os == 'ubuntu-latest' && matrix.dependency-version == 'prefer-stable'
+        if: github.ref == 'refs/heads/main' && matrix.php == '8.1' && matrix.laravel == '10.*' && matrix.os == 'ubuntu-latest' && matrix.dependency-version == 'prefer-stable'
         uses: codacy/codacy-coverage-reporter-action@v1.3
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: build/clover.xml
 
       - name: Upload coverage to Codecov
-        if: github.ref == 'refs/heads/main' && matrix.php == '8.0' && matrix.laravel == '8.*' && matrix.os == 'ubuntu-latest' && matrix.dependency-version == 'prefer-stable'
+        if: github.ref == 'refs/heads/main' && matrix.php == '8.1' && matrix.laravel == '10.*' && matrix.os == 'ubuntu-latest' && matrix.dependency-version == 'prefer-stable'
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
