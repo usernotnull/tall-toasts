@@ -1,7 +1,7 @@
 export default function (Alpine) {
   Alpine.data('ToastComponent',
     ($wire) => ({
-      duration: $wire.duration,
+      defaultDuration: $wire.defaultDuration,
       wireToasts: $wire.entangle('toasts'),
       prod: $wire.entangle('prod'),
       wireToastsIndex: 0,
@@ -15,22 +15,22 @@ export default function (Alpine) {
         window.Toast = {
           component: this,
 
-          make: (message, title, type) => ({ title, message, type }),
+          make: (message, title, type, duration) => ({ title, message, type, duration }),
 
-          debug (message, title = '') {
-            this.component.add(this.make(message, title, 'debug'));
+          debug (message, title = '', duration = undefined) {
+            this.component.add(this.make(message, title, 'debug', duration ?? this.component.defaultDuration));
           },
 
-          info (message, title = '') {
-            this.component.add(this.make(message, title, 'info'));
+          info (message, title = '', duration = undefined) {
+            this.component.add(this.make(message, title, 'info', duration ?? this.component.defaultDuration));
           },
 
-          success (message, title = '') {
-            this.component.add(this.make(message, title, 'success'));
+          success (message, title = '', duration = undefined) {
+            this.component.add(this.make(message, title, 'success', duration ?? this.component.defaultDuration));
           },
 
-          warning (message, title = '') {
-            this.component.add(this.make(message, title, 'warning'));
+          warning (message, title = '', duration = undefined) {
+            this.component.add(this.make(message, title, 'warning', duration ?? this.component.defaultDuration));
           },
 
           danger (message, title = '') {
@@ -100,13 +100,17 @@ export default function (Alpine) {
           return;
         }
 
+        if (this.toasts[toastIndex].duration === 0) {
+          return;
+        }
+
         this.pendingRemovals[toastIndex] = setTimeout(() => {
           this.remove(toastIndex);
-        }, this.duration);
+        }, this.toasts[toastIndex].duration);
       },
 
       scheduleRemovalWithOlder (toastIndex = this.count) {
-        for (let i = 0; i <= toastIndex; i++) {
+        for (let i = 0; i < toastIndex; i++) {
           this.scheduleRemoval(i);
         }
       },

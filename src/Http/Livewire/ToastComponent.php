@@ -14,7 +14,7 @@ use Usernotnull\Toast\ToastManager;
 
 class ToastComponent extends Component
 {
-    public int $duration;
+    public int $defaultDuration;
 
     public int $loadDelay;
 
@@ -35,11 +35,11 @@ class ToastComponent extends Component
             $this->toasts = ToastManager::pullNextPage();
         }
 
-        $this->duration = config('tall-toasts.duration');
-
         $this->loadDelay = config('tall-toasts.load_delay');
 
         $this->prod = App::isProduction();
+
+        $this->defaultDuration = config('tall-toasts.duration');
     }
 
     public function render(): View|Factory|Application

@@ -73,6 +73,10 @@ Toast.warning('Watch out!');
 Toast.danger('I warned you!', 'Yikes');
 
 Toast.debug('I will NOT show in production! Locally, I will also log in console...', 'A Debug Message');
+
+Toast.success('This toast will display only for 3 seconds', 'The Title', 3000);
+
+Toast.success('This toast will display until you remove it manually', 'The Title', 0);
 ```
 
 ### From The Backend
@@ -110,6 +114,16 @@ toast()
 // debug also accepts objects as message
 toast()
     ->debug(User::factory()->createOne()->only(['name', 'email']), 'A User Dump')
+    ->push();
+
+toast()
+    ->success('This toast will display only for 3 seconds')
+    ->duration(3000)
+    ->push();
+
+toast()
+    ->success('This toast will display until you remove it manually')
+    ->keep()
     ->push();
 ```
 
