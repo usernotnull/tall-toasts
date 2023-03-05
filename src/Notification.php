@@ -62,7 +62,7 @@ class Notification
         return $this;
     }
 
-    public function keep(): Notification
+    public function sticky(): Notification
     {
         $this->duration = 0;
 

@@ -121,7 +121,7 @@ toast()
 
 toast()
     ->success('This toast will display until you remove it manually')
-    ->keep()
+    ->sticky()
     ->push();
 ```
 
