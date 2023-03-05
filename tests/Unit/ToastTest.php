@@ -87,3 +87,15 @@ it('skips sanitization when required', function () {
         ->and($toast['title'])
         ->toEqual($title);
 });
+
+it('can set the duration', function () {
+    toast()
+        ->info('testing duration', 'title')
+        ->duration(1234)
+        ->push();
+
+    $toast = ToastManager::pull()[0];
+
+    expect($toast['duration'])
+        ->toEqual(1234);
+});

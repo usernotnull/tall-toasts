@@ -100,13 +100,17 @@ export default function (Alpine) {
           return;
         }
 
+        if (this.toasts[toastIndex].duration === 0) {
+          return;
+        }
+
         this.pendingRemovals[toastIndex] = setTimeout(() => {
           this.remove(toastIndex);
-        }, this.duration);
+        }, this.toasts[toastIndex].duration);
       },
 
       scheduleRemovalWithOlder (toastIndex = this.count) {
-        for (let i = 0; i <= toastIndex; i++) {
+        for (let i = 0; i < toastIndex; i++) {
           this.scheduleRemoval(i);
         }
       },

@@ -14,8 +14,6 @@ use Usernotnull\Toast\ToastManager;
 
 class ToastComponent extends Component
 {
-    public int $duration;
-
     public int $loadDelay;
 
     public bool $prod;
@@ -34,8 +32,6 @@ class ToastComponent extends Component
         if (session()->has(config('tall-toasts.session_keys.toasts_next_page'))) {
             $this->toasts = ToastManager::pullNextPage();
         }
-
-        $this->duration = config('tall-toasts.duration');
 
         $this->loadDelay = config('tall-toasts.load_delay');
 
