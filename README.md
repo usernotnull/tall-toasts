@@ -14,8 +14,6 @@ Runs with the TALL stack: [Laravel](https://laravel.com/docs/10.x/installation),
 [![Build size Brotli](https://img.badgesize.io/usernotnull/tall-toasts/main/dist/js/tall-toasts.js.svg?compression=brotli&style=plastic&color=green&label=JS%20size)](https://github.com/usernotnull/tall-toasts/blob/main/dist/js/tall-toasts.js)  
 [![Scrutinizer Score](https://img.shields.io/scrutinizer/g/usernotnull/tall-toasts.svg?style=plastic&label=scrutinizer%20score)](https://scrutinizer-ci.com/g/usernotnull/tall-toasts)
 [![Codacy branch grade](https://img.shields.io/codacy/grade/0c6b4f96ac2a4a6cbf265f5e825a3fd2/main?style=plastic)](https://www.codacy.com/gh/usernotnull/tall-toasts/dashboard?utm_source=github.com&utm_medium=referral&utm_content=usernotnull/tall-toasts&utm_campaign=Badge_Grade)  
-[![Styling](https://img.shields.io/github/workflow/status/usernotnull/tall-toasts/fix-styling?label=styling&style=plastic)](https://github.com/usernotnull/tall-toasts/actions/workflows/styling.yml)
-[![Tests & Checks](https://img.shields.io/github/workflow/status/usernotnull/tall-toasts/run-checks?label=checks%20|%20tests&style=plastic)](https://github.com/usernotnull/tall-toasts/actions/workflows/checks.yml)
 [![Codecov branch](https://img.shields.io/codecov/c/github/usernotnull/tall-toasts/main?style=plastic)](https://app.codecov.io/gh/usernotnull/tall-toasts)
 
 Light | Dark
@@ -26,7 +24,7 @@ Light | Dark
 
 ## Featured On
 
-[<img src="https://laravelnews.imgix.net/laravel-news__logo.png" height="100" alt="Laravel News" />](https://laravel-news.com/toast-notifications-for-the-tall-stack) &nbsp;&nbsp;&nbsp; [<img src="https://madewithlaravel.com/mandant/madewithlaravel/images/logo.png" height="100" alt="madewithlaravel" />](https://madewithlaravel.com/tall-toasts) &nbsp;&nbsp;&nbsp; [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Podcasts_%28iOS%29.svg/2048px-Podcasts_%28iOS%29.svg.png" height="100" alt="Laravel News Podcast" />](https://podcasts.apple.com/us/podcast/laravel-news-podcast/id1051289963?mt=2)
+[<img src="https://scontent.fauh1-1.fna.fbcdn.net/v/t1.18169-9/13886399_514185262114079_5747316548883570874_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=174925&_nc_ohc=AJZWtm710c4AX969lHG&_nc_ht=scontent.fauh1-1.fna&oh=00_AfDpj5GaL87q5Fcg_O_S4hsDDmxBxw5WOW4EN43pzpfDUQ&oe=642C30C5" height="100" alt="Laravel News" />](https://laravel-news.com/toast-notifications-for-the-tall-stack) &nbsp;&nbsp;&nbsp; [<img src="https://madewithlaravel.com/mandant/madewithlaravel/images/logo.png" height="100" alt="madewithlaravel" />](https://madewithlaravel.com/tall-toasts) &nbsp;&nbsp;&nbsp; [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Podcasts_%28iOS%29.svg/2048px-Podcasts_%28iOS%29.svg.png" height="100" alt="Laravel News Podcast" />](https://podcasts.apple.com/us/podcast/laravel-news-podcast/id1051289963?mt=2)
 
 ## Why
 
