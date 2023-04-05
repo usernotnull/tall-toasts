@@ -34,7 +34,7 @@
         "friendsofphp/php-cs-fixer": "^v3.16",
         "pestphp/pest": "^v1.22",
         "nunomaduro/larastan": "^2.5",
-        "laravel/pint": "^1.7",
+        "laravel/pint": "^1.8",
         "nunomaduro/collision": "^5.11.0|^6.3.0|^7.0",
         "orchestra/testbench": "^8.2",
         "pestphp/pest-plugin-laravel": "^v1.4",
