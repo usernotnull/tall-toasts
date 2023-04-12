@@ -11,7 +11,7 @@
         "@babel/preset-env": "^7.21",
         "@babel/plugin-proposal-object-rest-spread": "^7.20",
         "@rollup/plugin-node-resolve": "^15.0",
-        "@rollup/plugin-alias": "^4.0",
+        "@rollup/plugin-alias": "^5.0",
         "@rollup/plugin-commonjs": "^24.1",
         "@rollup/plugin-babel": "^6.0",
         "core-js": "^3.30",
