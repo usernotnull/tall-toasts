@@ -36,7 +36,7 @@
         "nunomaduro/larastan": "^2.5",
         "laravel/pint": "^1.9",
         "nunomaduro/collision": "^5.11.0|^6.3.0|^7.0",
-        "orchestra/testbench": "^8.4",
+        "orchestra/testbench": "^8.5",
         "pestphp/pest-plugin-laravel": "^v1.4",
         "pestphp/pest-plugin-parallel": "^1.2",
         "phpmd/phpmd": "^2.13",
