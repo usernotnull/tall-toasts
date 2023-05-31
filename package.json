@@ -7,7 +7,7 @@
         "watch": "npx rollup -c -w"
     },
     "devDependencies": {
-        "@babel/core": "^7.21",
+        "@babel/core": "^7.22",
         "@babel/preset-env": "^7.22",
         "@babel/plugin-proposal-object-rest-spread": "^7.20",
         "@rollup/plugin-node-resolve": "^15.1",
