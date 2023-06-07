@@ -33,8 +33,8 @@ export default function (Alpine) {
             this.component.add(this.make(message, title, 'warning', duration ?? this.component.defaultDuration));
           },
 
-          danger (message, title = '') {
-            this.component.add(this.make(message, title, 'danger'));
+          danger (message, title = '', duration = undefined) {
+            this.component.add(this.make(message, title, 'danger', duration ?? this.component.defaultDuration));
           }
         };
 
