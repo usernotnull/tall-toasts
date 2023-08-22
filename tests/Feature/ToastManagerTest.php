@@ -5,12 +5,11 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\File;
 use Livewire\Livewire;
-use Usernotnull\Toast\Http\Livewire\ToastComponent;
+use Usernotnull\Toast\Livewire\ToastComponent;
 use Usernotnull\Toast\Notification;
 use Usernotnull\Toast\NotificationType;
 use Usernotnull\Toast\ToastBladeDirectives;
 use Usernotnull\Toast\ToastManager;
-
 use function Pest\Laravel\get;
 use function PHPUnit\Framework\assertEquals;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Usernotnull\Toast\Http\Livewire;
+namespace Usernotnull\Toast\Livewire;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;

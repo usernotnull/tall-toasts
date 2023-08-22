@@ -12,7 +12,7 @@ trait WireToast
     {
         if (! ToastManager::componentRendered()) {
             foreach (ToastManager::pull() ?? [] as $notification) {
-                $this->dispatchBrowserEvent('toast', $notification);
+                $this->dispatch('toast', $notification);
             }
         }
     }
