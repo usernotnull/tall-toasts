@@ -207,42 +207,36 @@ Next, you need to register `Toast` with AlpineJS.  How this is done depends on w
 
 #### AlpineJS installed as an NPM Module
 
-If you have installed AlpineJS through NPM, you can add the Toast component by changing your `app.js` file to match:
+Livewire v3 already comes with AlpineJs with it, and it injects the javascript by default in our page. 
+
+So, in order to install the plugin to the app we will need to expose Alpine and Livewire, and then add the Toast component by changing your `app.js` file to match:
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metas, Styles, JS... -->
+</head>
+
+<body>
+
+<!-- Below toasts, your contents... -->
+
+@livewireScriptConfig
+</body>
+
+</html>
+```
 
 ```js
-import Alpine from "alpinejs"
+import {Alpine, Livewire} from '../../vendor/livewire/livewire/dist/livewire.esm';
 import ToastComponent from '../../vendor/usernotnull/tall-toasts/resources/js/tall-toasts'
 
-Alpine.data('ToastComponent', ToastComponent)
+Alpine.data(ToastComponent)
 
-window.Alpine = Alpine
-Alpine.start()
+Livewire.start()
 ```
 
-*If you have a custom directory structure, you may have to adjust the above import path until it correctly points
-to `tall-toasts.js` inside this vendor file.*
-
-Include the `@toastScripts` blade directive *BEFORE* the `mix()` helper if using Laravel Mix,  if using Vite, include it before the `@vite` blade directive.
-
-```html
-@toastScripts
-
-<--- Vite --->
-@vite(['resources/css/app.css', 'resources/js/app.js'])
-
-<--- Mix --->
-<script src="{{ mix('js/app.js') }}" defer></script>
-```
-
-#### AlpineJS added via script tag
-
-If you imported AlpineJS via a script tag simply add the `@toastScripts` blade directive *BEFORE* importing AlpineJS:
-
-
-```html
-@toastScripts
-<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-```
 
 ### The View
 
