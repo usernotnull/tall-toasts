@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Livewire\Livewire;
 use Usernotnull\Toast\Livewire\ToastComponent;
 use Usernotnull\Toast\ToastManager;
+
 use function PHPUnit\Framework\assertFalse;
 use function PHPUnit\Framework\assertTrue;
 

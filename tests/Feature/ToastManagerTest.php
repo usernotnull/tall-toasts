@@ -10,6 +10,7 @@ use Usernotnull\Toast\Notification;
 use Usernotnull\Toast\NotificationType;
 use Usernotnull\Toast\ToastBladeDirectives;
 use Usernotnull\Toast\ToastManager;
+
 use function Pest\Laravel\get;
 use function PHPUnit\Framework\assertEquals;
 

@@ -7,6 +7,7 @@ use Usernotnull\Toast\Livewire\ToastComponent;
 use Usernotnull\Toast\Notification;
 use Usernotnull\Toast\NotificationType;
 use Usernotnull\Toast\ToastManager;
+
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertFalse;
 use function PHPUnit\Framework\assertTrue;
