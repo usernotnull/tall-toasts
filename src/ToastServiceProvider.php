@@ -10,7 +10,7 @@ use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Usernotnull\Toast\Controllers\JavaScriptAssets;
-use Usernotnull\Toast\Http\Livewire\ToastComponent;
+use Usernotnull\Toast\Livewire\ToastComponent;
 
 class ToastServiceProvider extends PackageServiceProvider
 {

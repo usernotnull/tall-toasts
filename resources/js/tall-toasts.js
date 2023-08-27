@@ -2,8 +2,8 @@ export default function (Alpine) {
   Alpine.data('ToastComponent',
     ($wire) => ({
       defaultDuration: $wire.defaultDuration,
-      wireToasts: $wire.entangle('toasts'),
-      prod: $wire.entangle('prod'),
+      wireToasts: $wire.$entangle('toasts'),
+      prod: $wire.$entangle('prod'),
       wireToastsIndex: 0,
       toasts: [],
       pendingToasts: [],

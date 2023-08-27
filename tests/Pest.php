@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Livewire\Component;
-use Livewire\Response;
 use Usernotnull\Toast\Concerns\WireToast;
 use Usernotnull\Toast\Tests\TestCase;
 
@@ -16,8 +15,7 @@ function createFakeComponent(): void
 
         public function __construct()
         {
-            parent::__construct();
-            $this->dehydrate(new Response(request()));
+            $this->dehydrate(new \Illuminate\Http\Response(request()));
         }
     };
 }

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use Livewire\Livewire;
-use Usernotnull\Toast\Http\Livewire\ToastComponent;
+use Usernotnull\Toast\Livewire\ToastComponent;
 use Usernotnull\Toast\Notification;
 use Usernotnull\Toast\NotificationType;
 use Usernotnull\Toast\ToastManager;
