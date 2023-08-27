@@ -162,10 +162,8 @@ Dependency | Version
 PHP | ^8.0
 Laravel | ^8.0 \| ^9.0 \| ^10.0
 TailwindCSS | ^2.0 \| ^3.0
-Livewire | ^2.0 \| ^3.0 (as of tall-toasts v2)
+Livewire | ^2.0
 AlpineJS | ^3.0
-
-You can find the older [v1 documentation here](README-v1.md)
 
 ## Installation
 
@@ -205,35 +203,44 @@ This way, Tailwind JIT will include the classes used in this library in your CSS
 
 ### Registering Toast with AlpineJS
 
-Livewire v3 ships with AlpineJs and is injected automatically onto your page.
+Next, you need to register `Toast` with AlpineJS.  How this is done depends on which method you used to add Alpine to your project:
 
-To install the plugin, we need to expose Alpine and Livewire then add the Toast component in your `app.js`:
+#### AlpineJS installed as an NPM Module
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Metas, Styles, JS... -->
-</head>
-
-<body>
-
-<!-- Below toasts, your contents... -->
-
-@livewireScriptConfig
-</body>
-
-</html>
-```
+If you have installed AlpineJS through NPM, you can add the Toast component by changing your `app.js` file to match:
 
 ```js
-import {Alpine, Livewire} from '../../vendor/livewire/livewire/dist/livewire.esm';
+import Alpine from "alpinejs"
 import ToastComponent from '../../vendor/usernotnull/tall-toasts/resources/js/tall-toasts'
 
-Alpine.plugin(ToastComponent)
+Alpine.data('ToastComponent', ToastComponent)
 
-Livewire.start()
+window.Alpine = Alpine
+Alpine.start()
+```
+
+*If you have a custom directory structure, you may have to adjust the above import path until it correctly points
+to `tall-toasts.js` inside this vendor file.*
+
+Include the `@toastScripts` blade directive *BEFORE* the `mix()` helper if using Laravel Mix,  if using Vite, include it before the `@vite` blade directive.
+
+```html
+@toastScripts
+
+<--- Vite --->
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+
+<--- Mix --->
+<script src="{{ mix('js/app.js') }}" defer></script>
+```
+
+#### AlpineJS added via script tag
+
+If you imported AlpineJS via a script tag simply add the `@toastScripts` blade directive *BEFORE* importing AlpineJS:
+
+```html
+@toastScripts
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 ```
 
 ### The View
