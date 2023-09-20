@@ -8,7 +8,7 @@ use Usernotnull\Toast\ToastManager;
 
 trait WireToast
 {
-    public function dehydrate(): void
+    public function renderedWireToast(): void
     {
         if (! ToastManager::componentRendered()) {
             foreach (ToastManager::pull() ?? [] as $notification) {
