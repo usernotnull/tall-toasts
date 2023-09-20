@@ -127,26 +127,6 @@ toast()
 
 You can call the above toast helper from controllers, blade views, and components.
 
-**To properly call it from inside livewire components, add the trait:**
-
-```php
-use Livewire\Component;
-use Usernotnull\Toast\Concerns\WireToast;
-
-class DemoComponent extends Component
-{
-    use WireToast; // <-- add this
-
-    public function sendCookie(): void
-    {
-        toast()
-            ->success('You earned a cookie! 🍪')
-            ->pushOnNextPage();
-
-        redirect()->route('dashboard');
-    }
-```
-
 ## Support Me
 
 I plan on developing many open-source packages using the TALL stack.  
@@ -205,27 +185,7 @@ This way, Tailwind JIT will include the classes used in this library in your CSS
 
 ### Registering Toast with AlpineJS
 
-Livewire v3 ships with AlpineJs and is injected automatically onto your page.
-
-To install the plugin, we need to expose Alpine and Livewire then add the Toast component in your `app.js`:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Metas, Styles, JS... -->
-</head>
-
-<body>
-
-<!-- Below toasts, your contents... -->
-
-@livewireScriptConfig
-</body>
-
-</html>
-```
+Add the Toast component in your `app.js`:
 
 ```js
 import {Alpine, Livewire} from '../../vendor/livewire/livewire/dist/livewire.esm';
@@ -235,8 +195,6 @@ Alpine.plugin(ToastComponent)
 
 Livewire.start()
 ```
-
-### The View
 
 Add `<livewire:toasts />` **as high as possible** in the body tag, ie:
 
@@ -252,14 +210,34 @@ Add `<livewire:toasts />` **as high as possible** in the body tag, ie:
     <livewire:toasts />
 
     <!-- Below toasts, your contents... -->
+
+    @livewireScriptConfig
 </body>
 
 </html>
 ```
 
-That's it! 🎉
+To properly dispatch toasts from inside your livewire components, **add the trait**:
 
-***
+```php
+use Livewire\Component;
+use Usernotnull\Toast\Concerns\WireToast;
+
+class DemoComponent extends Component
+{
+    use WireToast; // <-- add this
+
+    public function sendCookie(): void
+    {
+        toast()
+            ->success('You earned a cookie! 🍪')
+            ->pushOnNextPage();
+
+        redirect()->route('dashboard');
+    }
+```
+
+That's it! 🎉
 
 ## RTL Support
 
@@ -349,9 +327,9 @@ template. It helps us quickly reproduce the bug and resolve it.
 ### The toasts won't show
 
 - Is the <livewire:toasts /> located in a page that has both the livewire and alpine/app.js script tags
-    inserted? [(see)](#the-view)
+    inserted?
 
-- Did you skip adding the ToastComponent as an alpine data component? [(see)](#alpinejs)
+- Did you skip adding the ToastComponent as an alpine data component?
 
 - Did you forget calling push() at the end of the chained method? [(see)](#usage)
 
