@@ -8,7 +8,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.23",
-        "@babel/preset-env": "^7.22",
+        "@babel/preset-env": "^7.23",
         "@babel/plugin-proposal-object-rest-spread": "^7.20",
         "@rollup/plugin-alias": "^5.0",
         "@rollup/plugin-node-resolve": "^15.2",
