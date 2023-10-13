@@ -31,7 +31,7 @@
         "livewire/livewire": "^v3"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^v3.34",
+        "friendsofphp/php-cs-fixer": "^v3.35",
         "pestphp/pest": "^v1.23",
         "nunomaduro/larastan": "^2.6",
         "laravel/pint": "^1.13",
