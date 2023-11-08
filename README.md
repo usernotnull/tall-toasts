@@ -1,6 +1,6 @@
 <div align="center">
 
-# Beautiful Notification Toasts For Laravel
+# Beautiful Notification Toasts For Laravel & Livewire
 
 A Toast global that can be called from the backend (via Controllers, Blade Views, Components) or frontend (JS, Alpine
 Components) to render customizable toasts.
