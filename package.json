@@ -16,7 +16,7 @@
         "@rollup/plugin-commonjs": "^25.0",
         "@rollup/plugin-babel": "^6.0",
         "core-js": "^3.33",
-        "fs-extra": "^11.1",
+        "fs-extra": "^11.2",
         "get-value": "^3.0",
         "md5": "^2.3",
         "rollup": "^2.79",
