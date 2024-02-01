@@ -107,7 +107,7 @@ jobs:
 
       - name: Upload coverage to Codecov
         if: github.ref == 'refs/heads/main' && matrix.php == '8.1' && matrix.laravel == '10.*' && matrix.os == 'ubuntu-latest' && matrix.dependency-version == 'prefer-stable'
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: ./build/
