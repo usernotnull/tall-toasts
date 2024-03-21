@@ -140,7 +140,7 @@ To stay updated, [follow me on Twitter](https://twitter.com/usernotnull).
 Dependency | Version
 ----|----
 PHP | ^8.0
-Laravel | ^8.0 \| ^9.0 \| ^10.0
+Laravel | ^8.0 \| ^9.0 \| ^10.0 \| ^11.0
 TailwindCSS | ^2.0 \| ^3.0
 Livewire | ^2.0 \| ^3.0 (as of tall-toasts v2)
 AlpineJS | ^3.0
