@@ -33,7 +33,7 @@
     "require-dev": {
         "pestphp/pest": "^1.23.1",
         "nunomaduro/larastan": "^2.9",
-        "laravel/pint": "^1.14",
+        "laravel/pint": "^1.15",
         "nunomaduro/collision": "^6.4.0",
         "orchestra/testbench": "^8.22.1",
         "pestphp/pest-plugin-laravel": "^v1.4|^2.3",
