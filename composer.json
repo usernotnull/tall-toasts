@@ -31,7 +31,7 @@
         "livewire/livewire": "^v3"
     },
     "require-dev": {
-        "pestphp/pest": "^1.23.1",
+        "pestphp/pest": "^2.34.8",
         "nunomaduro/larastan": "^2.9",
         "laravel/pint": "^1.15",
         "nunomaduro/collision": "^6.4.0",
