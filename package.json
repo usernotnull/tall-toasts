@@ -17,7 +17,7 @@
         "@rollup/plugin-babel": "^6.0",
         "core-js": "^3.40",
         "fs-extra": "^11.3",
-        "get-value": "^3.0",
+        "get-value": "^4.0",
         "md5": "^2.3",
         "rollup": "^2.79",
         "rollup-plugin-filesize": "^10.0",
