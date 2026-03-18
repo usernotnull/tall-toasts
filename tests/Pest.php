@@ -10,14 +10,11 @@ uses(TestCase::class)->in('Feature', 'Unit');
 
 function createFakeComponent(): void
 {
-    new class () extends Component {
+    $component = new class () extends Component {
         use WireToast;
-
-        public function __construct()
-        {
-            $this->dehydrate(new \Illuminate\Http\Response(request()));
-        }
     };
+
+    $component->renderedWireToast();
 }
 
 function setEnvironment(string $environment = 'testing'): void
