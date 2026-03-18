@@ -16,15 +16,15 @@ jobs:
     runs-on: ${{ matrix.os }}
 
 
-    if: "${{ github.event.workflow_run.conclusion == 'success' }}"
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
 
     strategy:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: ['8.1', '8.2']
-        laravel: ['11.0', '12.0', ^10.0]
+        php: ['8.1', '8.2', '8.3', '8.4', '8.5']
+        laravel: ['11.0', '12.0', '13.0', ^10.0]
         dependency-version: [prefer-stable]
         include:
           - laravel: ^10.0
@@ -33,11 +33,17 @@ jobs:
             testbench: ^9.0
           - laravel: '12.0'
             testbench: ^10.0
+          - laravel: ^13.0
+            testbench: ^11.0
         exclude:
           - laravel: '11.0'
             php: '8.1'
           - laravel: '12.0'
             php: '8.1'
+          - laravel: '13.0'
+            php: '8.1'
+          - laravel: '13.0'
+            php: '8.2'
 
 
     steps:
@@ -88,25 +94,30 @@ jobs:
     runs-on: ubuntu-latest
 
 
-    if: "${{ github.event.workflow_run.conclusion == 'success' }}"
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
 
     strategy:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: ['8.1', '8.2']
-        laravel: ['11.0', '12.0', ^10.0]
+        php: ['8.1', '8.2', '8.3', '8.4', '8.5']
+        laravel: ['11.0', '12.0', '13.0', ^10.0]
         dependency-version: [prefer-stable]
         include:
           - laravel: ^10.0
           - laravel: '11.0'
           - laravel: '12.0'
+          - laravel: ^13.0
         exclude:
           - laravel: '11.0'
             php: '8.1'
           - laravel: '12.0'
             php: '8.1'
+          - laravel: '13.0'
+            php: '8.1'
+          - laravel: '13.0'
+            php: '8.2'
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
 
@@ -138,14 +149,14 @@ jobs:
 
 
       - name: Execute Tests (Ubuntu) + Coverage
-        if: "matrix.os == 'ubuntu-latest'"
+        if: matrix.os == 'ubuntu-latest'
         run: vendor/bin/pest --parallel --coverage-clover="build/clover.xml"
         env:
           RUNNING_IN_CI: true
 
 
       - name: Upload Coverage
-        if: "github.ref == 'refs/heads/main' && matrix.php == '8.1' && matrix.laravel == '10.*' && matrix.os == 'ubuntu-latest' && matrix.dependency-version == 'prefer-stable'"
+        if: github.ref == 'refs/heads/main' && matrix.php == '8.1' && matrix.laravel == '10.*' && matrix.os == 'ubuntu-latest' && matrix.dependency-version == 'prefer-stable'
         uses: codacy/codacy-coverage-reporter-action@v1.3
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
@@ -153,7 +164,7 @@ jobs:
 
 
       - name: Upload coverage to Codecov
-        if: "github.ref == 'refs/heads/main' && matrix.php == '8.1' && matrix.laravel == '10.*' && matrix.os == 'ubuntu-latest' && matrix.dependency-version == 'prefer-stable'"
+        if: github.ref == 'refs/heads/main' && matrix.php == '8.1' && matrix.laravel == '10.*' && matrix.os == 'ubuntu-latest' && matrix.dependency-version == 'prefer-stable'
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
