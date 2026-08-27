@@ -371,13 +371,13 @@ This package has 3 GitHub Workflows which run sequentially when pushing PRs:
 
 - First, it checks for styling issues and automatically fixes them using:
     1. [PHP CS Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
-    2. [PHP Code Beautifier](https://github.com/squizlabs/PHP_CodeSniffer)
+    2. [PHP Code Beautifier](https://github.com/PHPCSStandards/PHP_CodeSniffer)
 
 - Then, it uses static analysis followed by standard unit tests using:
     1. [Psalm](https://psalm.dev/)
     2. [PHP Stan](https://github.com/phpstan/phpstan)
     3. [PHP MessDetector](https://phpmd.org/)
-    4. [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+    4. [PHP Code Sniffer](https://github.com/PHPCSStandards/PHP_CodeSniffer)
     5. [PestPHP](https://pestphp.com/)
 
 - Finally, it generates the minified JS dist which is injected by @toastScripts
